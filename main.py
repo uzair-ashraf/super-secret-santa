@@ -1,13 +1,16 @@
 import json
+import random
+import secret_santa
 from user import User
 
-secretSantaList = []
+secret_santa_list = []
+players = []
 
 with open('./data.json') as data:
-  userData = json.load(data)
-  for user in userData:
-    secretSantaList.append(User(user['name'], user['email']))
+  user_data = json.load(data)
+  for user in user_data:
+    secret_santa_list.append(User(user['name'], user['email']))
+    players.append(user['name'])
 
-  for user in secretSantaList:
-    print(user.name)
-    print(user.email)
+
+secret_santa.assign_users_their_secret_santas(secret_santa_list, players)
