@@ -11,7 +11,3 @@ def assign_users_their_secret_santas(users, players):
       selected_player = random.choice(players)
     user.set_selected_secret_santa(selected_player)
     players.remove(selected_player)
-  for user in users:
-    print(user.name +
-          ' is assigned ' +
-          user.selected_secret_santa)
